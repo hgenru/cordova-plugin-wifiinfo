@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-wifiinfo"
+    version="0.0.1">
+
+    <name>WifiInfo</name>
+    <description>Get wifi info in ios.</description>
+    <author>hgen</author>
+    <keywords>cordova,phonegap,network,wifi</keywords>
+    <license>Apache 2.0</license>
+    <repo>https://github.com/hgenru/cordova-plugin-wifiinfo</repo>
+
+    <js-module src="www/wifiinfo.js" name="WifiInfo">
+        <clobbers target="window.wifiinfo"/>
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="WifiInfo">
+                <param name="ios-package" value="NXWWifiInfo"/>
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/NXWWifiInfo.h"/>
+        <source-file src="src/ios/NXWWifiInfo.m"/>
+        <framework src="SystemConfiguration.framework" />
+    </platform>
+
+</plugin>
